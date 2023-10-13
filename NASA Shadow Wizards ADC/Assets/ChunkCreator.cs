@@ -13,37 +13,32 @@ public class ChunkCreator : MonoBehaviour
     {
         vertices = new Vector3[(chunkSizeX + 1) * (chunkSizeZ + 1)];
 
-
-        for (int i = 0, z = 0; z < chunkSizeX; z++)
+        for (int x = 0; x <= chunkSizeX; x++)
         {
-            for (int x = 0; x < chunkSizeZ; x++)
+            for (int z = 0; z <= chunkSizeZ; z++)
             {
-                vertices[i] = new Vector3(offsetX + x, heightValues[x, z], offsetZ + z);
+                float xPos = (float)x / chunkSizeX;
+                float zPos = (float)z / chunkSizeX;
 
-                i++;
+                vertices[x * (chunkSizeX + 1) + z] = new Vector3(xPos, heightValues[x, z] / 50f, zPos);
             }
         }
 
         triangles = new int[chunkSizeX * chunkSizeZ * 6];
-
-        int vert = 0;
-        int tris = 0;
-
-        for (int z = 0; z < chunkSizeZ; z++)
+        int triangleIndex = 0;
+        for (int x = 0; x < chunkSizeX; x++)
         {
-            for (int x = 0; x < chunkSizeX; x++)
+            for (int z = 0; z < chunkSizeX; z++)
             {
-                triangles[tris + 0] = vert + 0;
-                triangles[tris + 1] = vert + chunkSizeX + 1;
-                triangles[tris + 2] = vert + 1;
-                triangles[tris + 3] = vert + 1;
-                triangles[tris + 4] = vert + chunkSizeX + 1;
-                triangles[tris + 5] = vert + chunkSizeX + 2;
-
-                vert++;
-                tris += 6;
+                int vertexIndex = x * (chunkSizeX + 1) + z;
+                triangles[triangleIndex] = vertexIndex;
+                triangles[triangleIndex + 1] = vertexIndex + 1;
+                triangles[triangleIndex + 2] = vertexIndex + chunkSizeX + 1;
+                triangles[triangleIndex + 3] = vertexIndex + 1;
+                triangles[triangleIndex + 4] = vertexIndex + chunkSizeX + 2;
+                triangles[triangleIndex + 5] = vertexIndex + chunkSizeX + 1;
+                triangleIndex += 6;
             }
-            vert++;
         }
 
         UpdateChunk();
@@ -70,7 +65,7 @@ public class ChunkCreator : MonoBehaviour
         {
             for (int i = 0; i < vertices.Length; i++)
             {
-                Gizmos.DrawSphere(vertices[i], .25f);
+                //Gizmos.DrawSphere(vertices[i], .25f);
             }
         }
     }
