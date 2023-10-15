@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections.Generic;
+using System.Collections;
 
 public class MeshCreator : MonoBehaviour
 {
@@ -40,10 +42,17 @@ public class MeshCreator : MonoBehaviour
             }
         }
 
+        print(Time.time);
+
+        StartCoroutine(InstanceChunks());
+    }
+
+    private IEnumerator InstanceChunks()
+    {
         // Generating chunks (only 16 for now)
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < 31; i++)
         {
-            for (int o = 0; o < 3; o++)
+            for (int o = 0; o < 31; o++)
             {
                 float[,] chunkHeightValues = new float[chunkSizeX + 1, chunkSizeZ + 1];
 
@@ -52,13 +61,17 @@ public class MeshCreator : MonoBehaviour
                 {
                     for (int h = 0; h <= chunkSizeX; h++)
                     {
-                        print("H: " + h + " , " + "G: " + g);
+                        //print("H: " + h + " , " + "G: " + g);
                         chunkHeightValues[h, g] = heightValues[h + i * chunkSizeX, g + o * chunkSizeZ];
                     }
                 }
 
+                print(Time.time);
+
                 GameObject chunk = Instantiate(chunkObject, new Vector3(i * chunkSizeX, 0, o * chunkSizeZ), Quaternion.identity, transform);
                 chunk.GetComponent<ChunkCreator>().CreateChunk(chunkHeightValues, chunkSizeX, chunkSizeZ, i * chunkSizeX, o * chunkSizeZ);
+
+                yield return new WaitForSeconds(.005f);
             }
         }
     }
