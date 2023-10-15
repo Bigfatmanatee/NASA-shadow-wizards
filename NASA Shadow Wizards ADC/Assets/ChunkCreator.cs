@@ -11,16 +11,18 @@ public class ChunkCreator : MonoBehaviour
 
     public void CreateChunk(float[,] heightValues, int chunkSizeX, int chunkSizeZ, float offsetX, float offsetZ)
     {
-        vertices = new Vector3[(chunkSizeX + 1) * (chunkSizeZ + 1)];
+        vertices = new Vector3[(chunkSizeX+1) * (chunkSizeZ+1)];
+        int i = 0;
 
         for (int x = 0; x <= chunkSizeX; x++)
         {
             for (int z = 0; z <= chunkSizeZ; z++)
             {
-                float xPos = (float)x;
-                float zPos = (float)z;
+                float xPos = x;
+                float zPos = z;
 
-                vertices[x * (chunkSizeX + 1) + z] = new Vector3(xPos, heightValues[x, z], zPos);
+                vertices[i] = new Vector3(xPos, heightValues[x, z], zPos);
+                i++;
             }
         }
 

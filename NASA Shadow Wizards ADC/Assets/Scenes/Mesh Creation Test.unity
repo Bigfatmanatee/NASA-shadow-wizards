@@ -155,8 +155,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xSize: 200
   zSize: 200
-  chunkSizeX: 50
-  chunkSizeZ: 50
+  chunkSizeX: 100
+  chunkSizeZ: 100
   chunkObject: {fileID: 3914198806708062056, guid: 76e722a234d7eba43b52626c5e62390c, type: 3}
   csvFiles:
   - {fileID: 4900000, guid: 4e5e6c710ef57b341b408179c485aafb, type: 3}
