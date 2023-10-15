@@ -41,9 +41,9 @@ public class MeshCreator : MonoBehaviour
         }
 
         // Generating chunks (only 16 for now)
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 6; i++)
         {
-            for (int o = 0; o < 10; o++)
+            for (int o = 0; o < 3; o++)
             {
                 float[,] chunkHeightValues = new float[chunkSizeX + 1, chunkSizeZ + 1];
 
@@ -53,7 +53,7 @@ public class MeshCreator : MonoBehaviour
                     for (int h = 0; h <= chunkSizeX; h++)
                     {
                         print("H: " + h + " , " + "G: " + g);
-                        chunkHeightValues[h, g] = heightValues[h + 1+i * chunkSizeX, g + 1+o * chunkSizeZ];
+                        chunkHeightValues[h, g] = heightValues[h + i * chunkSizeX, g + o * chunkSizeZ];
                     }
                 }
 
