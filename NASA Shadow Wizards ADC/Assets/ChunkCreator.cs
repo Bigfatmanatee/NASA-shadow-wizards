@@ -17,10 +17,10 @@ public class ChunkCreator : MonoBehaviour
         {
             for (int z = 0; z <= chunkSizeZ; z++)
             {
-                float xPos = (float)x / chunkSizeX;
-                float zPos = (float)z / chunkSizeX;
+                float xPos = (float)x;
+                float zPos = (float)z;
 
-                vertices[x * (chunkSizeX + 1) + z] = new Vector3(xPos, heightValues[x, z] / 50f, zPos);
+                vertices[x * (chunkSizeX + 1) + z] = new Vector3(xPos, heightValues[x, z], zPos);
             }
         }
 

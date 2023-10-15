@@ -41,20 +41,20 @@ public class MeshCreator : MonoBehaviour
         }
 
         // Generating chunks (only 16 for now)
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < 64; i++)
         {
-            for (int o = 0; o < 2; o++)
+            for (int o = 0; o < 64; o++)
             {
                 float[,] chunkHeightValues = new float[chunkSizeX + 1, chunkSizeZ + 1];
 
                 // Copying a subsection of the array
-                //print("From: " + i * chunkSizeX + " : to : " + (i * (chunkSizeX + chunkSizeX)));
-                for (int g = i * chunkSizeX; g < i * chunkSizeX + chunkSizeX; g++)
+                for (int g = 0; g < chunkSizeX; g++)
                 {
-                    for (int h = o * chunkSizeX; h < o * chunkSizeX + chunkSizeX; h++)
+                    for (int h = 0; h < chunkSizeX; h++)
                     {
-                        chunkHeightValues[h, g] = heightValues[h, g];
-                    } 
+                        print("H: " + h + " , " + "G: " + g);
+                        chunkHeightValues[h, g] = heightValues[h + i * chunkSizeX, g + o * chunkSizeZ];
+                    }
                 }
 
                 GameObject chunk = Instantiate(chunkObject, new Vector3(i * chunkSizeX, 0, o * chunkSizeZ), Quaternion.identity, transform);
