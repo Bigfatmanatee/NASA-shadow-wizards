@@ -10,6 +10,7 @@ public class MeshCreator : MonoBehaviour
     public int chunkSizeZ = 100;
     public GameObject chunkObject;
     public TextAsset[] csvFiles; // Assign the CSV file in the Inspector
+    public Shader terrainShader1;
     float[,] heightValues = new float[3200, 3200];
 
     private void Start()
@@ -69,10 +70,13 @@ public class MeshCreator : MonoBehaviour
                 print(Time.time);
 
                 GameObject chunk = Instantiate(chunkObject, new Vector3(i * chunkSizeX, 0, o * chunkSizeZ), Quaternion.identity, transform);
-                chunk.GetComponent<ChunkCreator>().CreateChunk(chunkHeightValues, chunkSizeX, chunkSizeZ, i * chunkSizeX, o * chunkSizeZ);
+                chunk.GetComponent<ChunkCreator>().CreateChunk(chunkHeightValues, chunkSizeX, chunkSizeZ, terrainShader1);
 
                 yield return new WaitForSeconds(.005f);
             }
         }
+
+        // Scaling the mesh down (TEMPORARY FIX TO SCALING)
+        transform.localScale = new Vector3(1, .25f, 1);
     }
 }
