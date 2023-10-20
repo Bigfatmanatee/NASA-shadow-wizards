@@ -43,8 +43,6 @@ public class MeshCreator : MonoBehaviour
             }
         }
 
-        print(Time.time);
-
         StartCoroutine(InstanceChunks());
     }
 
@@ -53,14 +51,15 @@ public class MeshCreator : MonoBehaviour
         // Generating chunks (only 16 for now)
         for (int i = 0; i < 31; i++)
         {
-            for (int o = 0; o < 31; o++)
+            for (int o = 0; o < 1; o++)
             {
                 float[,] chunkHeightValues = new float[chunkSizeX + 1, chunkSizeZ + 1];
 
                 // Copying a subsection of the array
+                print("Chunk " + i + "," + o + " starts at " + heightValues[i * chunkSizeX, o * chunkSizeZ]);
                 for (int g = 0; g <= chunkSizeX; g++)
                 {
-                    for (int h = 0; h <= chunkSizeX; h++)
+                    for (int h = 0; h <= chunkSizeZ; h++)
                     {
                         //print("H: " + h + " , " + "G: " + g);
                         chunkHeightValues[h, g] = heightValues[h + i * chunkSizeX, g + o * chunkSizeZ];
@@ -77,6 +76,6 @@ public class MeshCreator : MonoBehaviour
         }
 
         // Scaling the mesh down (TEMPORARY FIX TO SCALING)
-        transform.localScale = new Vector3(1, .25f, 1);
+        //transform.localScale = new Vector3(1, .25f, 1);
     }
 }
