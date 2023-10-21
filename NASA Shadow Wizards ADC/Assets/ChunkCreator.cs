@@ -28,11 +28,6 @@ public class ChunkCreator : MonoBehaviour
             }
         }
 
-        foreach (Vector3 vertex in vertices)
-        {
-            print(transform.GetInstanceID() + " : " + vertex.y);
-        }
-
         triangles = new int[chunkSizeX * chunkSizeZ * 6];
         int triangleIndex = 0;
         for (int x = 0; x < chunkSizeX; x++)

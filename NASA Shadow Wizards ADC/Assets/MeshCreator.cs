@@ -51,12 +51,12 @@ public class MeshCreator : MonoBehaviour
         // Generating chunks (only 16 for now)
         for (int i = 0; i < 31; i++)
         {
-            for (int o = 0; o < 1; o++)
+            for (int o = 0; o < 31; o++)
             {
                 float[,] chunkHeightValues = new float[chunkSizeX + 1, chunkSizeZ + 1];
 
                 // Copying a subsection of the array
-                print("Chunk " + i + "," + o + " starts at " + heightValues[i * chunkSizeX, o * chunkSizeZ]);
+                //print("Chunk " + i + "," + o + " starts at " + heightValues[i * chunkSizeX, o * chunkSizeZ]);
                 for (int g = 0; g <= chunkSizeX; g++)
                 {
                     for (int h = 0; h <= chunkSizeZ; h++)
@@ -65,8 +65,6 @@ public class MeshCreator : MonoBehaviour
                         chunkHeightValues[h, g] = heightValues[h + i * chunkSizeX, g + o * chunkSizeZ];
                     }
                 }
-
-                print(Time.time);
 
                 GameObject chunk = Instantiate(chunkObject, new Vector3(i * chunkSizeX, 0, o * chunkSizeZ), Quaternion.identity, transform);
                 chunk.GetComponent<ChunkCreator>().CreateChunk(chunkHeightValues, chunkSizeX, chunkSizeZ, terrainShader1);
