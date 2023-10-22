@@ -4,6 +4,7 @@ using System.Collections;
 
 public class MeshCreator : MonoBehaviour
 {
+    public bool combineMeshes;
     public int xSize = 3200;
     public int zSize = 3200;
     public int chunkSizeX = 100;
@@ -11,6 +12,7 @@ public class MeshCreator : MonoBehaviour
     public GameObject chunkObject;
     public TextAsset[] csvFiles; // Assign the CSV file in the Inspector
     public Shader terrainShader1;
+    public Material terrainMainMaterial;
     float[,] heightValues = new float[3201, 3201];
 
     private void Start()
@@ -28,7 +30,7 @@ public class MeshCreator : MonoBehaviour
             {
                 string[] values = line.Split(',');
 
-                foreach(string value in values)
+                foreach (string value in values)
                 {
                     if (value.Length < 1) continue;
                     // so the program doesn't exit, use a tryparse
@@ -41,7 +43,7 @@ public class MeshCreator : MonoBehaviour
                     {
                         y++;
                         x = 0;
-                    }  
+                    }
                 }
             }
         }
@@ -70,13 +72,37 @@ public class MeshCreator : MonoBehaviour
                 }
 
                 GameObject chunk = Instantiate(chunkObject, new Vector3(i * chunkSizeX, 0, o * chunkSizeZ), Quaternion.identity, transform);
-                chunk.GetComponent<ChunkCreator>().CreateChunk(chunkHeightValues, chunkSizeX, chunkSizeZ, terrainShader1);
+                chunk.GetComponent<ChunkCreator>().CreateChunk(chunkHeightValues, chunkSizeX, chunkSizeZ, terrainShader1, terrainMainMaterial);
 
                 yield return new WaitForSeconds(.005f);
             }
         }
 
-        // Scaling the mesh down (TEMPORARY FIX TO SCALING)
-        //transform.localScale = new Vector3(1, .25f, 1);
+        if (combineMeshes)
+        {
+            CombineMeshes();
+        }
+    }
+
+    private void CombineMeshes()
+    {
+        MeshFilter[] meshFilters = GetComponentsInChildren<MeshFilter>();
+        CombineInstance[] combine = new CombineInstance[meshFilters.Length];
+
+        int i = 0;
+        while (i < meshFilters.Length)
+        {
+            combine[i].mesh = meshFilters[i].sharedMesh;
+            combine[i].transform = meshFilters[i].transform.localToWorldMatrix;
+            meshFilters[i].gameObject.SetActive(false);
+
+            i++;
+        }
+
+        Mesh mesh = new Mesh();
+        mesh.indexFormat = UnityEngine.Rendering.IndexFormat.UInt32;
+        mesh.CombineMeshes(combine);
+        transform.GetComponent<MeshFilter>().sharedMesh = mesh;
+        transform.gameObject.SetActive(true);
     }
 }

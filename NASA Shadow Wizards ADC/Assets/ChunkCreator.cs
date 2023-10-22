@@ -9,10 +9,12 @@ public class ChunkCreator : MonoBehaviour
     Vector3[] vertices;
     int[] triangles;
     Shader terrainShader1;
+    Material terrainMainMaterial;
 
-    public void CreateChunk(float[,] heightValues, int chunkSizeX, int chunkSizeZ, Shader terrainShader1)
+    public void CreateChunk(float[,] heightValues, int chunkSizeX, int chunkSizeZ, Shader terrainShader1, Material terrainMainMaterial)
     {
         this.terrainShader1 = terrainShader1;
+        this.terrainMainMaterial = terrainMainMaterial;
         vertices = new Vector3[(chunkSizeX+1) * (chunkSizeZ+1)];
         int i = 0;
 
@@ -51,7 +53,7 @@ public class ChunkCreator : MonoBehaviour
     private void UpdateChunk()
     {
         MeshRenderer meshRenderer = gameObject.AddComponent<MeshRenderer>();
-        meshRenderer.sharedMaterial = new Material(terrainShader1);
+        meshRenderer.sharedMaterial = terrainMainMaterial;
 
         MeshFilter meshFilter = gameObject.AddComponent<MeshFilter>();
         Mesh mesh = new Mesh();
