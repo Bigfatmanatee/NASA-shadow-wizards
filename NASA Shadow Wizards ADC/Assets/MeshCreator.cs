@@ -11,7 +11,7 @@ public class MeshCreator : MonoBehaviour
     public GameObject chunkObject;
     public TextAsset[] csvFiles; // Assign the CSV file in the Inspector
     public Shader terrainShader1;
-    float[,] heightValues = new float[3200, 3200];
+    float[,] heightValues = new float[3201, 3201];
 
     private void Start()
     {
@@ -31,7 +31,10 @@ public class MeshCreator : MonoBehaviour
                 foreach(string value in values)
                 {
                     if (value.Length < 1) continue;
-                    heightValues[y, x] = float.Parse(value);
+                    // so the program doesn't exit, use a tryparse
+                    float parsedValue;
+                    bool success = float.TryParse(value, out parsedValue);
+                    heightValues[y, x] = parsedValue;
                     x++;
 
                     if (x == 3200)

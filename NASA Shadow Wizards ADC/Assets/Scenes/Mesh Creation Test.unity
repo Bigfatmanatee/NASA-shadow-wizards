@@ -260,20 +260,9 @@ MonoBehaviour:
   chunkSizeZ: 100
   chunkObject: {fileID: 3914198806708062056, guid: 76e722a234d7eba43b52626c5e62390c, type: 3}
   csvFiles:
-  - {fileID: 4900000, guid: 4e5e6c710ef57b341b408179c485aafb, type: 3}
-  - {fileID: 4900000, guid: a5bd6854bfe3e344ebb082af67c01d7b, type: 3}
-  - {fileID: 4900000, guid: de790f0a4877c3946911dfee79198842, type: 3}
-  - {fileID: 4900000, guid: 8049590ab58861f43b8066bcd1544f60, type: 3}
-  - {fileID: 4900000, guid: 9da140e7f73dd7341a6e106285910e2d, type: 3}
-  - {fileID: 4900000, guid: 315cc7bd02e553b408b23308dc1532a1, type: 3}
-  - {fileID: 4900000, guid: b4f9f29ad8d92db4ca18fceda1ce4e47, type: 3}
-  - {fileID: 4900000, guid: 0166d123d2575d145bf9c2699695686a, type: 3}
-  - {fileID: 4900000, guid: e5b64508dee83594da97ddd70437a2d2, type: 3}
-  - {fileID: 4900000, guid: 23d9e1a017ffa5541b85e455c614bc00, type: 3}
-  - {fileID: 4900000, guid: 5b580f4378e8ecc49bdfa447f7ce4ffc, type: 3}
-  - {fileID: 4900000, guid: 225043e56bff0f04499a7b1820dec9e8, type: 3}
-  - {fileID: 4900000, guid: 00512453ec01b694394a7b18c26cfc96, type: 3}
-  - {fileID: 4900000, guid: 6977228629625324a9f43c179a5927fb, type: 3}
+  - {fileID: 4900000, guid: bcee76d3830c72b489b9e209eb23b8e8, type: 3}
+  - {fileID: 4900000, guid: 7e381e1aae969d947b873a5896913f5c, type: 3}
+  - {fileID: 4900000, guid: 3f0a7d4a2b952a64b8a8fb9a2a605a5d, type: 3}
   terrainShader1: {fileID: 4800000, guid: 71a3d1d4644800048bbe22f81401747e, type: 3}
 --- !u!114 &764505121
 MonoBehaviour:
@@ -480,7 +469,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1362611865}
   - component: {fileID: 1362611864}
-  - component: {fileID: 1362611863}
   m_Layer: 0
   m_Name: Minimini
   m_TagString: Untagged
@@ -488,14 +476,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1362611863
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1362611862}
-  m_Enabled: 1
 --- !u!20 &1362611864
 Camera:
   m_ObjectHideFlags: 0
