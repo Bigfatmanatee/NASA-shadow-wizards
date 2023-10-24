@@ -52,6 +52,9 @@ public class ChunkCreator : MonoBehaviour
 
     private void UpdateChunk()
     {
+        Rigidbody rigidBody = gameObject.AddComponent<Rigidbody>();
+        rigidBody.isKinematic = true;
+
         MeshRenderer meshRenderer = gameObject.AddComponent<MeshRenderer>();
         meshRenderer.sharedMaterial = terrainMainMaterial;
 
@@ -63,6 +66,8 @@ public class ChunkCreator : MonoBehaviour
 
         meshFilter.mesh = mesh;
         mesh.RecalculateNormals();
+
+        MeshCollider meshCollider = gameObject.AddComponent<MeshCollider>();
     }
 
     private void OnDrawGizmos()
