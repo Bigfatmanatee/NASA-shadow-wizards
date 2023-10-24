@@ -48,6 +48,9 @@ public class MeshCreator : MonoBehaviour
             }
         }
 
+        Grid grid = new Grid(heightValues);
+        grid.CreateGrid;
+            
         StartCoroutine(InstanceChunks());
     }
 
@@ -104,5 +107,10 @@ public class MeshCreator : MonoBehaviour
         mesh.CombineMeshes(combine);
         transform.GetComponent<MeshFilter>().sharedMesh = mesh;
         transform.gameObject.SetActive(true);
+    }
+
+    private void GridMaker()
+    {
+        
     }
 }
