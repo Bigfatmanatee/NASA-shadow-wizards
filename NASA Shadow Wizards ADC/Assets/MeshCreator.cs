@@ -48,8 +48,8 @@ public class MeshCreator : MonoBehaviour
             }
         }
 
-        Grid grid = new Grid(heightValues);
-        grid.CreateGrid;
+        //Grid grid = new Grid(heightValues);
+        //grid.CreateGrid;
             
         StartCoroutine(InstanceChunks());
     }

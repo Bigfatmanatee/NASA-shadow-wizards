@@ -1,4 +1,4 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,7 +18,7 @@ public class Grid : MonoBehaviour
 
         for (int i = 0; i < 3201; i++)
         {
-            for (int j = 0; j < 3201; j++
+            for (int j = 0; j < 3201; j++)
             {
                 grid[i, j] = new Node(true, worldPoint);
             }       

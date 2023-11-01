@@ -8,12 +8,16 @@ public class RoverRoving : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        public float xSnstvy;
+        public float ySnstvy;
+        public Transform ori;
     }
 
     // Update is called once per frame
     void Update()
     {
+        float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * xSnstvy;
+
         if (Input.GetKey(KeyCode.W))
         {
             rigidbody.AddForce(transform.forward * 10, ForceMode.Force);
