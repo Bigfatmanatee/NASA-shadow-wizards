@@ -1,10 +1,10 @@
-/*using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Grid : MonoBehaviour
 {
-    public LayerMask isUnwalkable;
+    /*public LayerMask isUnwalkable;
     int gridSizeY, gridSizeX;
     public Vector2 gridWorldSize;
     Node[,] grid = new Node[3201, 3201];
@@ -47,6 +47,7 @@ public class Grid : MonoBehaviour
         //How many nodes can fit in our grid?
         
     }
+    */
 }
 
 

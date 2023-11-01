@@ -4,35 +4,35 @@ using UnityEngine;
 
 public class RoverRoving : MonoBehaviour
 {
+    public float spd = 5;
+
     public Rigidbody rigidbody;
     // Start is called before the first frame update
     void Start()
     {
-        public float xSnstvy;
-        public float ySnstvy;
-        public Transform ori;
-    }
 
+
+    }
     // Update is called once per frame
     void Update()
     {
-        float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * xSnstvy;
+
 
         if (Input.GetKey(KeyCode.W))
         {
-            rigidbody.AddForce(transform.forward * 10, ForceMode.Force);
+            rigidbody.AddForce(transform.forward * spd, ForceMode.Force);
         }
         if (Input.GetKey(KeyCode.S))
         {
-            rigidbody.AddForce(transform.forward * (-10), ForceMode.Force);
+            rigidbody.AddForce(transform.forward * (spd * -1), ForceMode.Force);
         }
         if (Input.GetKey(KeyCode.A))
         {
-            rigidbody.AddForce(transform.right * (-10), ForceMode.Force);
+            rigidbody.AddForce(transform.right * (spd * -1), ForceMode.Force);
         }
         if (Input.GetKey(KeyCode.D))
         {
-            rigidbody.AddForce(transform.right * 10, ForceMode.Force);
+            rigidbody.AddForce(transform.right * spd, ForceMode.Force);
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
