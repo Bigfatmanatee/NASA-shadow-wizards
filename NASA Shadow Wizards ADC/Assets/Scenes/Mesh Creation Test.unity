@@ -353,7 +353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76b7cd2c50bf14e46b397f30280e0730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spd: 2
+  spd: 10
   rigidbody: {fileID: 519133352}
 --- !u!1 &764505118
 GameObject:
@@ -382,7 +382,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 764505118}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3cdd66d5a86d2e0409d66d3984881010, type: 3}
   m_Name: 
@@ -390,8 +390,8 @@ MonoBehaviour:
   combineMeshes: 0
   xSize: 200
   zSize: 200
-  chunkSizeX: 100
-  chunkSizeZ: 100
+  chunkSizeX: 200
+  chunkSizeZ: 200
   chunkObject: {fileID: 3914198806708062056, guid: 76e722a234d7eba43b52626c5e62390c, type: 3}
   csvFiles:
   - {fileID: 4900000, guid: bcee76d3830c72b489b9e209eb23b8e8, type: 3}
@@ -471,7 +471,7 @@ Transform:
   m_GameObject: {fileID: 764505118}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -503,7 +503,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 791439898}
-  m_Material: {fileID: 13400000, guid: d6323f69fdd120341b492247ae62068e, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2

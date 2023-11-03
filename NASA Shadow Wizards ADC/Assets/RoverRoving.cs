@@ -16,9 +16,15 @@ public class RoverRoving : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float x;
+        float y;
 
+        x = Input.GetAxis("Horizontal") * spd;
+        y = Input.GetAxis("Vertical") * spd;
 
-        if (Input.GetKey(KeyCode.W))
+        rigidbody.velocity = (transform.right * x + transform.forward * y) + transform.up * (-1);
+
+       /* if (Input.GetKey(KeyCode.W))
         {
             rigidbody.AddForce(transform.forward * spd, ForceMode.Force);
         }
@@ -34,11 +40,12 @@ public class RoverRoving : MonoBehaviour
         {
             rigidbody.AddForce(transform.right * spd, ForceMode.Force);
         }
+       */
         if (Input.GetKeyDown(KeyCode.Space))
         {
             rigidbody.AddForce(transform.up * 3, ForceMode.Impulse);
         }
-
+       
         
     }
 }

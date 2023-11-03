@@ -57,9 +57,9 @@ public class MeshCreator : MonoBehaviour
     private IEnumerator InstanceChunks()
     {
         // Generating chunks (only 16 for now)
-        for (int i = 0; i < 31; i++)
+        for (int i = 0; i < 16; i++)
         {
-            for (int o = 0; o < 31; o++)
+            for (int o = 0; o < 16; o++)
             {
                 float[,] chunkHeightValues = new float[chunkSizeX + 1, chunkSizeZ + 1];
 
